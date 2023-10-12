@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "laait.essentials.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "ClientBossBarMixin",
+    "EntityMixin",
+    "ItemStackMixin"
+  ]
+}
