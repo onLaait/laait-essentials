@@ -9,6 +9,8 @@
   "client": [
     "ClientBossBarMixin",
     "EntityMixin",
-    "ItemStackMixin"
+    "ItemStackMixin",
+    "ParticleS2CPacketMixin",
+    "TextDisplayEntityMixin"
   ]
 }

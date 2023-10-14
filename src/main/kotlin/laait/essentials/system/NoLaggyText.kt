@@ -17,7 +17,7 @@ object NoLaggyText {
             length += lengthToAdd
             lag += if (c.style.isObfuscated) lengthToAdd * 50 else lengthToAdd
         }
-        if (lag > 1000) return CensorResult(true, Text.literal("(매우 긴 이름: $length)")
+        if (lag > 1000) return CensorResult(true, Text.literal("(매우 긴 문자열: $length)")
             .setStyle(style))
         return CensorResult(false, text)
     }

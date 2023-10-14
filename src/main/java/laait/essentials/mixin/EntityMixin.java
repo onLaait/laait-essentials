@@ -23,10 +23,10 @@ public abstract class EntityMixin {
     private void injected(List<DataTracker.SerializedEntry<?>> dataEntries, CallbackInfo ci) {
         for (DataTracker.SerializedEntry<?> serializedEntry : dataEntries) {
             if (serializedEntry.id() == 2) {
-                Optional<Text> optionalVal = (Optional<Text>) serializedEntry.value();
-                if (optionalVal.isEmpty()) return;
-                NoLaggyText.CensorResult censor = NoLaggyText.INSTANCE.censor(optionalVal.get());
-                if (!censor.getCensored()) return;
+                Optional<Text> optVal = (Optional<Text>) serializedEntry.value();
+                if (optVal.isEmpty()) break;
+                NoLaggyText.CensorResult censor = NoLaggyText.INSTANCE.censor(optVal.get());
+                if (!censor.getCensored()) break;
                 this.setCustomName(censor.getText());
                 break;
             }
