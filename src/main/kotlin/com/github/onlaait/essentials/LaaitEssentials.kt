@@ -10,6 +10,5 @@ object LaaitEssentials : ClientModInitializer {
 	override fun onInitializeClient() {
 		logger.info("Initializing Laait Essentials Mod")
 		NoLaggyText
-		// Hi
 	}
 }
