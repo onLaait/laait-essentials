@@ -1,6 +1,6 @@
-package laait.essentials.mixin;
+package com.github.onlaait.essentials.mixin;
 
-import laait.essentials.LaaitEssentials;
+import com.github.onlaait.essentials.LaaitEssentials;
 import net.minecraft.network.packet.s2c.play.ParticleS2CPacket;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Final;

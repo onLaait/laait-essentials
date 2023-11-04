@@ -1,6 +1,6 @@
-package laait.essentials.mixin;
+package com.github.onlaait.essentials.mixin;
 
-import laait.essentials.system.NoLaggyText;
+import com.github.onlaait.essentials.system.NoLaggyText;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.decoration.DisplayEntity;
 import net.minecraft.text.Text;

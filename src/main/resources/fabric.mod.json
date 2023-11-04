@@ -8,13 +8,13 @@
 		"Laait"
 	],
 	"contact": {},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/laait-essentials/icon.png",
 	"environment": "client",
 	"entrypoints": {
 		"client": [
 			{
-				"value": "laait.essentials.LaaitEssentials",
+				"value": "com.github.onlaait.essentials.LaaitEssentials",
 				"adapter": "kotlin"
 			}
 		]

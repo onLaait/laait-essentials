@@ -1,6 +1,6 @@
-package laait.essentials.mixin;
+package com.github.onlaait.essentials.mixin;
 
-import laait.essentials.system.NoLaggyText;
+import com.github.onlaait.essentials.system.NoLaggyText;
 import net.minecraft.client.gui.hud.ClientBossBar;
 import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Mixin;

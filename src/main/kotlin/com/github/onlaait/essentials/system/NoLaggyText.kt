@@ -1,4 +1,4 @@
-package laait.essentials.system
+package com.github.onlaait.essentials.system
 
 import net.minecraft.text.Style
 import net.minecraft.text.Text
@@ -7,7 +7,7 @@ import net.minecraft.util.Formatting
 
 object NoLaggyText {
 
-    val style: Style = Style.EMPTY.withColor(TextColor.fromFormatting(Formatting.RED)).withItalic(false)
+    private val style: Style = Style.EMPTY.withColor(TextColor.fromFormatting(Formatting.RED)).withItalic(false)
 
     fun censor(text: Text): CensorResult {
         var length = 0
@@ -15,7 +15,7 @@ object NoLaggyText {
         for (c in text.getWithStyle(Style.EMPTY)) {
             val lengthToAdd = c.string.length
             length += lengthToAdd
-            lag += if (c.style.isObfuscated) lengthToAdd * 50 else lengthToAdd
+            lag += if (c.style.isObfuscated) lengthToAdd * 20 else lengthToAdd
         }
         if (lag > 1000) return CensorResult(true, Text.literal("(매우 긴 문자열: $length)")
             .setStyle(style))
