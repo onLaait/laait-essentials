@@ -7,7 +7,9 @@
 	"authors": [
 		"Laait"
 	],
-	"contact": {},
+	"contact": {
+		"sources": "https://github.com/onLaait/laait-essentials"
+	},
 	"license": "MIT",
 	"icon": "assets/laait-essentials/icon.png",
 	"environment": "client",
@@ -17,15 +19,21 @@
 				"value": "com.github.onlaait.essentials.LaaitEssentials",
 				"adapter": "kotlin"
 			}
+		],
+		"modmenu": [
+			"com.github.onlaait.essentials.config.ModMenuIntegration"
 		]
 	},
 	"mixins": [
-		"laait-essentials.mixins.json"
+		{
+			"config": "laait-essentials.mixins.json",
+			"environment": "client"
+		}
 	],
 	"depends": {
 		"fabricloader": "*",
 		"minecraft": "*",
-		"java": ">=17",
+		"java": ">=21",
 		"fabric-api": "*",
 		"fabric-language-kotlin": "*"
 	},

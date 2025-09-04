@@ -1,16 +1,31 @@
 {
   "required": true,
   "package": "com.github.onlaait.essentials.mixin",
-  "compatibilityLevel": "JAVA_17",
-  "mixins": [],
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "BossBarMixin",
+    "ClientBossBarMixin",
+    "ClientCommonNetworkHandlerMixin",
+    "ClientPlayerEntityMixin",
+    "ClientPlayNetworkHandlerMixin",
+    "ConnectScreenMixin",
+    "DefaultMinecartControllerMixin",
+    "DisconnectedScreenMixin",
+    "EntityMixin",
+    "EntityRenderDispatcherMixin",
+    "FontStorageMixin",
+    "ItemStackMixin",
+    "KeyBindingAccessor",
+    "LivingEntityAccessor",
+    "LivingEntityMixin",
+    "MinecraftClientMixin",
+    "NetworkUtilsMixin",
+    "ParticleS2CPacketMixin",
+    "SubtitlesHudMixin",
+    "TextDisplayEntityMixin",
+    "WeightedSoundSetMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
-  },
-  "client": [
-    "ClientBossBarMixin",
-    "EntityMixin",
-    "ItemStackMixin",
-    "ParticleS2CPacketMixin",
-    "TextDisplayEntityMixin"
-  ]
+	}
 }

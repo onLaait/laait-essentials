@@ -1,26 +1,57 @@
 package com.github.onlaait.essentials.system
 
+import com.github.onlaait.essentials.LaaitEssentials
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
+import net.minecraft.text.StringVisitable
 import net.minecraft.text.Style
 import net.minecraft.text.Text
-import net.minecraft.text.TextColor
-import net.minecraft.util.Formatting
+import java.util.*
 
 object NoLaggyText {
 
-    private val style: Style = Style.EMPTY.withColor(TextColor.fromFormatting(Formatting.RED)).withItalic(false)
+    var int = 0
+        private set
 
-    fun censor(text: Text): CensorResult {
-        var length = 0
-        var lag = 0
-        for (c in text.getWithStyle(Style.EMPTY)) {
-            val lengthToAdd = c.string.length
-            length += lengthToAdd
-            lag += if (c.style.isObfuscated) lengthToAdd * 20 else lengthToAdd
-        }
-        if (lag > 1000) return CensorResult(true, Text.literal("(매우 긴 문자열: $length)")
-            .setStyle(style))
-        return CensorResult(false, text)
+    private val AND_MORE = Text.literal("...(생략됨)")
+        .setStyle(Style.EMPTY
+            .withColor(-8421505)
+            .withItalic(true)
+        )
+
+    fun exceededMaxLength(text: Text): Boolean {
+        var len = 0
+        var exceeded = false
+        text.visit(StringVisitable.Visitor { str ->
+            len += str.length
+            if (len > LaaitEssentials.config.maxTextLength) {
+                exceeded = true
+                return@Visitor StringVisitable.TERMINATE_VISIT
+            }
+            return@Visitor Optional.empty()
+        })
+        return exceeded
     }
 
-    data class CensorResult(val censored: Boolean, val text: Text)
+    fun apply(text: Text): Text {
+        val new = Text.empty()
+        var len = 0
+        text.visit(StringVisitable.StyledVisitor { style, str ->
+            val j = LaaitEssentials.config.maxTextLength - len
+            if (j <= 0) {
+                return@StyledVisitor StringVisitable.TERMINATE_VISIT
+            } else {
+                new.append(Text.literal(if (str.length <= j) str else str.substring(0, j)).fillStyle(style))
+                len += str.length
+                return@StyledVisitor Optional.empty()
+            }
+        }, Style.EMPTY)
+        return new.append(AND_MORE)
+    }
+
+    init {
+        ClientTickEvents.END_CLIENT_TICK.register {
+            int++
+            if (int < 0) int = 0
+        }
+    }
 }
