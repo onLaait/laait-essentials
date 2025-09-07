@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(DefaultMinecartController.class)
-public abstract class DefaultMinecartControllerMixin {
+public class DefaultMinecartControllerMixin {
 
     @Shadow
     private int step;

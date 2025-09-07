@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Set;
 
 @Mixin(FontStorage.class)
-public abstract class FontStorageMixin {
+public class FontStorageMixin {
 
     @Final
     @Shadow

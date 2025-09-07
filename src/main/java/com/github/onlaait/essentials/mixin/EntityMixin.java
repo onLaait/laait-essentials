@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Mixin(Entity.class)
-public abstract class EntityMixin {
+public class EntityMixin {
 
     @Final
     @Shadow
