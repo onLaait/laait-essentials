@@ -1,8 +1,12 @@
 package com.github.onlaait.essentials.mixin;
 
+import com.github.onlaait.essentials.Keys;
 import com.github.onlaait.essentials.LaaitEssentials;
+import com.github.onlaait.essentials.system.BlockWave;
+import com.github.onlaait.essentials.system.Friend;
 import com.github.onlaait.essentials.system.SwordDance;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.item.SwordItem;
@@ -21,8 +25,17 @@ public class MinecraftClientMixin {
         return false;
     }
 
-    @Inject(method = "handleInputEvents()V", at = @At(value = "FIELD", target = "Lnet/minecraft/client/option/GameOptions;attackKey:Lnet/minecraft/client/option/KeyBinding;", opcode = Opcodes.GETFIELD, ordinal = 1))
+    @Inject(method = "handleInputEvents()V", at = @At("HEAD"))
     void injected(CallbackInfo ci) {
+        if (Keys.INSTANCE.getSpeedBuild().isPressed()) {
+            BlockWave.INSTANCE.onPress();
+        } else {
+            BlockWave.INSTANCE.onNotPress();
+        }
+    }
+
+    @Inject(method = "handleInputEvents()V", at = @At(value = "FIELD", target = "Lnet/minecraft/client/option/GameOptions;attackKey:Lnet/minecraft/client/option/KeyBinding;", opcode = Opcodes.GETFIELD, ordinal = 1))
+    void injected2(CallbackInfo ci) {
         if (!LaaitEssentials.INSTANCE.getConfig().getSwordDance()) return;
         KeyBinding attackKey = ((MinecraftClient) (Object) this).options.attackKey;
         if (attackKey.isPressed() && MinecraftClient.getInstance().player.getMainHandStack().getItem() instanceof SwordItem) {
@@ -41,5 +54,10 @@ public class MinecraftClientMixin {
             return attackKey.isPressed() && SwordDance.INSTANCE.wasSwording();
         }
         return attackKey.isPressed();
+    }
+
+    @Inject(method = "disconnect(Lnet/minecraft/client/gui/screen/Screen;Z)V", at = @At("RETURN"))
+    void injected(Screen disconnectionScreen, boolean transferring, CallbackInfo ci) {
+        if (!transferring) Friend.INSTANCE.getPlayersCache().clear();
     }
 }

@@ -1,10 +1,11 @@
 package com.github.onlaait.essentials.config
 
+import com.github.onlaait.essentials.LaaitEssentials
 import me.shedaniel.autoconfig.ConfigData
 import me.shedaniel.autoconfig.annotation.Config
 import me.shedaniel.autoconfig.annotation.ConfigEntry
 
-@Config(name = "laait-essentials")
+@Config(name = LaaitEssentials.ID)
 class ModConfig : ConfigData {
 
     var maxTextLength = 1000
@@ -19,8 +20,6 @@ class ModConfig : ConfigData {
         var minecart = 3
     }
 
-    var realTimeHitbox = false
-
     @ConfigEntry.Gui.CollapsibleObject
     var customJumpingCooldown = CustomJumpingCooldown()
     class CustomJumpingCooldown {
@@ -30,6 +29,13 @@ class ModConfig : ConfigData {
     }
 
     var swordDance = false
+
+    @ConfigEntry.Gui.CollapsibleObject
+    var blockWave = BlockWave()
+    class BlockWave {
+        var period = 0.4
+        var amplitude = 2.0
+    }
 
     var showUntranslatableSubtitles = true
 

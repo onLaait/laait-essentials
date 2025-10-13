@@ -21,6 +21,7 @@
     "MinecraftClientMixin",
     "NetworkUtilsMixin",
     "ParticleS2CPacketMixin",
+    "PlayerListHudMixin",
     "SubtitlesHudMixin",
     "TextDisplayEntityMixin",
     "WeightedSoundSetMixin"

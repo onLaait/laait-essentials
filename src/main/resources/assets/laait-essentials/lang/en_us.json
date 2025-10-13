@@ -10,6 +10,11 @@
     "text.autoconfig.laait-essentials.option.customJumpingCooldown.jumpingCooldown": "Jumping Cooldown",
     "text.autoconfig.laait-essentials.option.customJumpingCooldown.inputPacketTrick": "Input Packet Trick",
     "text.autoconfig.laait-essentials.option.swordDance": "Sword Dance",
+    "text.autoconfig.laait-essentials.option.blockWave": "Block Wave",
+    "text.autoconfig.laait-essentials.option.blockWave.period": "Period",
+    "text.autoconfig.laait-essentials.option.blockWave.amplitude": "Amplitude",
     "text.autoconfig.laait-essentials.option.showUntranslatableSubtitles": "Show Untranslatable Subtitles",
-    "text.autoconfig.laait-essentials.option.rejectTransfer": "Reject Transfer"
+    "text.autoconfig.laait-essentials.option.rejectTransfer": "Reject Transfer",
+    "key.categories.laait-essentials": "Laait Essentials",
+    "key.laait-essentials.blockWave": "Block Wave"
 }

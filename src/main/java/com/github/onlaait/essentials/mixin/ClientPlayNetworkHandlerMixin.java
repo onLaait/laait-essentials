@@ -1,11 +1,14 @@
 package com.github.onlaait.essentials.mixin;
 
+import com.github.onlaait.essentials.system.Friend;
 import com.llamalad7.mixinextras.sugar.Local;
+import com.mojang.authlib.GameProfile;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.network.packet.s2c.play.EntityTrackerUpdateS2CPacket;
+import net.minecraft.network.packet.s2c.play.PlayerListS2CPacket;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -19,6 +22,12 @@ public class ClientPlayNetworkHandlerMixin {
         if (entity instanceof ClientPlayerEntity) {
             packet.trackedValues().removeIf(entry -> entry.handler().equals(TrackedDataHandlerRegistry.ENTITY_POSE));
         }
+    }
+
+    @Inject(method = "onPlayerList(Lnet/minecraft/network/packet/s2c/play/PlayerListS2CPacket;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/network/packet/s2c/play/PlayerListS2CPacket$Entry;profile()Lcom/mojang/authlib/GameProfile;", shift = At.Shift.AFTER))
+    void injected(PlayerListS2CPacket packet, CallbackInfo ci, @Local net.minecraft.network.packet.s2c.play.PlayerListS2CPacket.Entry entry) {
+        GameProfile profile = entry.profile();
+        Friend.INSTANCE.cachePlayer(profile.getId(), profile.getName());
     }
 
 
