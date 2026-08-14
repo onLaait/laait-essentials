@@ -1,0 +1,32 @@
+{
+  "required": true,
+  "package": "io.github.onlaait.essentials.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "AbstractSignEditScreenMixin",
+    "BossEventMixin",
+    "ClientboundLevelParticlesPacketMixin",
+    "ClientCommonPacketListenerImplMixin",
+    "ClientPacketListenerMixin",
+    "ConnectScreenMixin",
+    "DisconnectedScreenMixin",
+    "EntityMixin",
+    "EntityRenderDispatcherMixin",
+    "EntityRendererMixin",
+    "FontSetMixin",
+    "HttpUtilMixin",
+    "InterpolationHandlerMixin",
+    "ItemStackMixin",
+    "KeyMappingAccessor",
+    "LerpingBossEventMixin",
+    "MinecraftMixin",
+    "PlayerRendererMixin",
+    "PlayerRenderStateMixin",
+    "SubtitleOverlayMixin",
+    "TextDisplayMixin",
+    "WeighedSoundEventsMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
