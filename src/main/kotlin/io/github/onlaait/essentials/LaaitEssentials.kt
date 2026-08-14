@@ -1,6 +1,8 @@
 package io.github.onlaait.essentials
 
+import io.github.onlaait.essentials.command.BanbookCommand
 import io.github.onlaait.essentials.command.ListCommand
+import io.github.onlaait.essentials.command.TransferCommand
 import io.github.onlaait.essentials.config.ModConfig
 import io.github.onlaait.essentials.system.Bedwars
 import me.shedaniel.autoconfig.AutoConfig
@@ -29,7 +31,9 @@ object LaaitEssentials : ClientModInitializer {
 		config = AutoConfig.getConfigHolder(ModConfig::class.java).getConfig()
 
         ClientCommandRegistrationCallback.EVENT.register { dispatcher, _ ->
+			BanbookCommand.register(dispatcher)
 			ListCommand.register(dispatcher)
+			TransferCommand.register(dispatcher)
         }
 
 		ClientReceiveMessageEvents.GAME.register { message, _ ->
