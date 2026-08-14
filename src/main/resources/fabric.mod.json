@@ -1,0 +1,39 @@
+{
+	"schemaVersion": 1,
+	"id": "laait-essentials",
+	"version": "${version}",
+	"name": "Laait Essentials",
+	"description": "",
+	"authors": [
+		"Laait"
+	],
+	"contact": {
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/laait-essentials/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			{
+				"value": "io.github.onlaait.essentials.LaaitEssentials",
+				"adapter": "kotlin"
+			}
+		],
+		"modmenu": [
+			"io.github.onlaait.essentials.config.ModMenuIntegration"
+		]
+	},
+	"mixins": [
+		{
+			"config": "laait-essentials.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": "*",
+		"minecraft": "*",
+		"java": ">=25",
+		"fabric-api": "*",
+		"fabric-language-kotlin": "*"
+	}
+}
