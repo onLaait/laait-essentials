@@ -21,7 +21,6 @@
     "LerpingBossEventMixin",
     "LocalPlayerMixin",
     "MinecraftMixin",
-    "RemotePlayerMixin",
     "SubtitleOverlayMixin",
     "TextDisplayMixin",
     "WeighedSoundEventsMixin"

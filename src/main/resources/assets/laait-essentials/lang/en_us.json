@@ -2,8 +2,6 @@
     "text.autoconfig.laait-essentials.title": "Laait Essentials Options",
     "text.autoconfig.laait-essentials.option.maxTextLength": "Max Text Length",
     "text.autoconfig.laait-essentials.option.maxParticleCount": "Max Particle Count",
-    "text.autoconfig.laait-essentials.option.interpolation": "Interpolation",
-    "text.autoconfig.laait-essentials.option.interpolation.player": "Player",
     "text.autoconfig.laait-essentials.option.realTimeHitbox": "Real Time Hitbox",
     "text.autoconfig.laait-essentials.option.swordDance": "Sword Dance",
     "text.autoconfig.laait-essentials.option.blockWave": "Block Wave",

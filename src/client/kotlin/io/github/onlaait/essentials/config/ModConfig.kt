@@ -12,21 +12,6 @@ class ModConfig : ConfigData {
     var maxParticleCount = 3000
 
     @ConfigEntry.Gui.CollapsibleObject
-    var interpolation = Interpolation()
-    class Interpolation {
-        @ConfigEntry.BoundedDiscrete(min = 1L, max = 20L)
-        var player = 2
-    }
-
-/*    @ConfigEntry.Gui.CollapsibleObject
-    var customJumpingCooldown = CustomJumpingCooldown()
-    class CustomJumpingCooldown {
-        var jumpingCooldown = 4
-        @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
-        var inputPacketTrick = InputPacketTrick.CALM
-    }*/
-
-    @ConfigEntry.Gui.CollapsibleObject
     var blockWave = BlockWave()
     class BlockWave {
         var period = 0.4
